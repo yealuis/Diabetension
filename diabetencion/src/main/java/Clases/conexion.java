@@ -16,8 +16,7 @@ public class conexion {
     Connection conectar = null;
     public Connection conectando (){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conectar = DriverManager.getConnection("jdbc:mysql://localhost/diabetencion?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+            conectar = DriverManager.getConnection("jdbc:sqlite:diabetencion.sqlite");
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }

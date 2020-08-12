@@ -6,6 +6,7 @@
 package Clases;
 
 import java.sql.*;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -133,6 +134,8 @@ public class InsertarPacientes extends javax.swing.JFrame {
         ComboHTA = new javax.swing.JComboBox<>();
         ComboGlucometro = new javax.swing.JComboBox<>();
         ComboDislipidemia = new javax.swing.JComboBox<>();
+        btnCerrar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         jMenuItem1.setText("Modificar");
         jMenuItem1.setComponentPopupMenu(jPopupMenu1);
@@ -297,6 +300,16 @@ public class InsertarPacientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnMostrarTodos))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 11, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(jLabel11)
                             .addComponent(jLabel9)
@@ -341,17 +354,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
                             .addComponent(DateDX, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                             .addComponent(ComboDislipidemia, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnMostrarTodos))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 11, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ComboDislipidemia, ComboHTA, DateDX, btnActualizar, txtMasaCorporal});
@@ -460,21 +463,50 @@ public class InsertarPacientes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Complicaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 18))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 123, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCerrar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrar)
+                .addContainerGap())
         );
 
         pack();
@@ -487,6 +519,22 @@ public class InsertarPacientes extends javax.swing.JFrame {
             txtNombre.setText(tblPacientes.getValueAt(fila, 1).toString());
             txtApellido.setText(tblPacientes.getValueAt(fila, 2).toString());
             //DateEdad.setDate((java.util.Date) tblPacientes.getValueAt(fila, 3));
+            
+            String edad = tblPacientes.getValueAt(fila, 3).toString();
+            java.text.SimpleDateFormat formatoEdad = new java.text.SimpleDateFormat("dd/MM/yyyy");
+            java.util.Date fechaEdad = null;
+            try {
+                fechaEdad = formatoEdad.parse(edad);
+            } catch (ParseException ex) {
+                Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                fechaEdad = formatoEdad.parse(edad);
+            } catch (ParseException ex) {
+                Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            DateEdad.setDate(fechaEdad);
+            
             ComboSexo.setSelectedItem(tblPacientes.getValueAt(fila, 4).toString());
             ComboTipoDiabetes.setSelectedItem(tblPacientes.getValueAt(fila, 5).toString());
             ComboHTA.setSelectedItem(tblPacientes.getValueAt(fila, 6).toString());
@@ -499,6 +547,22 @@ public class InsertarPacientes extends javax.swing.JFrame {
             txtDireccionPaciente.setText(tblPacientes.getValueAt(fila, 13).toString());
             ComboTipoPaciente.setSelectedItem(tblPacientes.getValueAt(fila, 14).toString());
             //DateDX.setDate((java.util.Date) tblPacientes.getValueAt(fila, 15));
+            
+            String fechaDX = tblPacientes.getValueAt(fila, 15).toString();
+            java.text.SimpleDateFormat formatoDX = new java.text.SimpleDateFormat("dd/MM/yyyy");
+            java.util.Date dx = null;
+            try {
+                dx = formatoDX.parse(fechaDX);
+            } catch (ParseException ex) {
+                Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                dx = formatoDX.parse(fechaDX);
+            } catch (ParseException ex) {
+                Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            DateDX.setDate(dx);
+            
         } else {
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
         }
@@ -612,6 +676,12 @@ public class InsertarPacientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        FrmLogin frml = new FrmLogin();
+        frml.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -658,6 +728,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateEdad;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JLabel jLabel1;
@@ -679,6 +750,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPacientes;

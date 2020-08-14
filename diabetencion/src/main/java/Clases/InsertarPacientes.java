@@ -817,7 +817,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ComboDislipidemia, ComboEnfermedadAso, ComboGlucometro, ComboHTA, ComboSexo, ComboTipoDiabetes, ComboTipoPaciente, DateDX, DateEdad, txtApellido, txtCedula, txtDireccionPaciente, txtHBA, txtInyectadoras, txtMasaCorporal, txtNombre, txtSumaSensor});
@@ -832,9 +832,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         btnCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -856,12 +854,12 @@ public class InsertarPacientes extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(345, 345, 345)
-                        .addComponent(btnCerrar))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(163, 163, 163)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1388, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(372, 372, 372)
+                        .addComponent(btnCerrar)))
+                .addContainerGap(1361, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -871,16 +869,16 @@ public class InsertarPacientes extends javax.swing.JFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(1493, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(1011, Short.MAX_VALUE)
                 .addComponent(btnCerrar)
-                .addGap(490, 490, 490))
+                .addGap(451, 451, 451)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(527, 527, 527))
             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(682, Short.MAX_VALUE)))
+                    .addContainerGap(1022, Short.MAX_VALUE)))
         );
 
         jScrollPane3.setViewportView(jDesktopPane1);
@@ -896,9 +894,8 @@ public class InsertarPacientes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1161,7 +1158,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
             pst.setString(19, txtEstablecimientoMunicipio.getText());
             pst.executeUpdate();
             MostrarDatosPacientes("");
-            JOptionPane.showMessageDialog(null, "Paciente Agregado");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
@@ -1178,7 +1174,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
             pst.setString(6, ComboCompliPD.getSelectedItem().toString());
             pst.executeUpdate();
             MostrarDatosComplicaciones("");
-            JOptionPane.showMessageDialog(null, "Paciente Agregado");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
@@ -1204,7 +1199,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
             pst.setString(13, jTextField10.getText());
             pst.executeUpdate();
             MostrarDatosMedicamentos("");
-            JOptionPane.showMessageDialog(null, "Paciente Agregado");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }

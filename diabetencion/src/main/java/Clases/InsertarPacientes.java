@@ -904,7 +904,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
     private void jMenuItemModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemModificarActionPerformed
         int filaPacientes = tblPacientes.getSelectedRow();
         if (filaPacientes >= 0) {
-            
             String Cedula = tblPacientes.getValueAt(filaPacientes, 0).toString();
             txtCedula.setText(Cedula);
             txtNombre.setText(tblPacientes.getValueAt(filaPacientes, 1).toString());
@@ -912,11 +911,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
             String edad = tblPacientes.getValueAt(filaPacientes, 3).toString();
             java.text.SimpleDateFormat formatoEdad = new java.text.SimpleDateFormat("dd/MM/yyyy");
             java.util.Date fechaEdad = null;
-            try {
-                fechaEdad = formatoEdad.parse(edad);
-            } catch (ParseException ex) {
-                Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
-            }
             try {
                 fechaEdad = formatoEdad.parse(edad);
             } catch (ParseException ex) {
@@ -937,11 +931,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
             String fechaDX = tblPacientes.getValueAt(filaPacientes, 15).toString();
             java.text.SimpleDateFormat formatoDX = new java.text.SimpleDateFormat("dd/MM/yyyy");
             java.util.Date dx = null;
-            try {
-                dx = formatoDX.parse(fechaDX);
-            } catch (ParseException ex) {
-                Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
-            }
             try {
                 dx = formatoDX.parse(fechaDX);
             } catch (ParseException ex) {
@@ -991,14 +980,6 @@ public class InsertarPacientes extends javax.swing.JFrame {
         String cod = "";
         cod = tblPacientes.getValueAt(filaPacientes, 0).toString();
         try {
-            PreparedStatement pst = cn.prepareStatement("DELETE FROM Pacientes WHERE Cedula = '"+cod+"'");
-            pst.executeUpdate();
-            MostrarDatosPacientes("");
-        } catch (SQLException ex) {
-            Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
             PreparedStatement pst = cn.prepareStatement("DELETE FROM ComplicacionesPacientes WHERE Cedula = '"+cod+"'");
             pst.executeUpdate();
             MostrarDatosComplicaciones("");
@@ -1010,6 +991,14 @@ public class InsertarPacientes extends javax.swing.JFrame {
             PreparedStatement pst = cn.prepareStatement("DELETE FROM Medicamentos WHERE Cedula = '"+cod+"'");
             pst.executeUpdate();
             MostrarDatosMedicamentos("");
+        } catch (SQLException ex) {
+            Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            PreparedStatement pst = cn.prepareStatement("DELETE FROM Pacientes WHERE Cedula = '"+cod+"'");
+            pst.executeUpdate();
+            MostrarDatosPacientes("");
         } catch (SQLException ex) {
             Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1048,7 +1037,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
             MostrarDatosPacientes("");
         } catch (SQLException ex) {
             Logger.getLogger(InsertarPacientes.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
 
         try {
             PreparedStatement pst = cn.prepareStatement("UPDATE ComplicacionesPacientes SET"
@@ -1136,7 +1125,7 @@ public class InsertarPacientes extends javax.swing.JFrame {
                 + "suma_sensor, inyectadoras, direccion_paciente,"
                 + "tipo_paciente, fecha_dx, enfermedad_asociada, establecimiento_control,"
                 + "establecimiento_municipio)"
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, txtCedula.getText());
             pst.setString(2, txtNombre.getText());
             pst.setString(3, txtApellido.getText());

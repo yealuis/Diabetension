@@ -134,7 +134,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         String usuario = txtUsuario.getText();
         String contraseña = String.valueOf(txtContraseña.getPassword());
-        String SQL = "SELECT * FROM Usuarios WHERE usuario='"+usuario+"' AND contrasena='"+contraseña+"'";
+        String SQL = "SELECT * FROM Usuarios WHERE usuario='"+usuario+"' AND contraseña='"+contraseña+"'";
         
         try {
             Statement st = cn.createStatement();
